@@ -1,4 +1,4 @@
-### Python API Session Manager
+### Python telegram API & Session creator 
 ---
 This Python application serves as a convenient tool for creating or retrieving API IDs and hashes from telegram, and it generates a session file for each user. With this app, you can easily manage API authentication tokens and store them securely for future use.
 
