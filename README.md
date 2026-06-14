@@ -1,20 +1,101 @@
-### Python telegram API & Session creator 
+# Telegram API & Session Creator
+
+A Python tool for generating or retrieving Telegram API credentials (API ID and API Hash) and creating Pyrogram session strings for automation workflows.
+
+> ⚠️ This tool interacts with https://my.telegram.org and requires a valid Telegram account.
+
 ---
-This Python application serves as a convenient tool for creating or retrieving API IDs and hashes from telegram, and it generates a session file for each user. With this app, you can easily manage API authentication tokens and store them securely for future use.
 
-#### How to Run:
-To run this app, simply use the following command:
-python3 main.py
+## Features
 
+- 🔑 Retrieve or generate Telegram **API ID & API Hash**
+- 🤖 Automates login flow via `my.telegram.org`
+- 💾 Generates **Pyrogram session strings**
+- 📁 Saves session data locally as a `.txt` file
+- ⚡ Simple interactive CLI
 
-#### Features:
-- **API ID and Hash Generation:** Create new API IDs and corresponding hashes for secure API access.
-- **Session File Creation:** Automatically generate session files to store user authentication data.
-- **Ease of Use:** Straightforward execution with a simple command.
+---
 
-#### Usage:
-1. Run the script using python3 main.py.
-2. Follow the prompts to create or retrieve API credentials.
-3. Access and manage your API session files effortlessly.
+## Requirements
 
-Feel free to contribute, report issues, or suggest improvements! Happy coding! 🐍✨
+- Python **3.10+** (recommended: 3.11 or 3.12)
+- Internet connection
+- A Telegram account
+
+---
+
+## Setup (Recommended: uv + virtual environment)
+
+This project uses **uv** for fast dependency management and virtual environments.
+
+### 1. Install uv
+
+If you don't already have `uv` installed:
+
+```bash
+curl -Ls https://astral.sh/uv/install.sh | sh
+```
+
+or:
+```bash
+pip install uv
+```
+
+### 2. Create a virtual environment
+
+Inside the project folder:
+
+```bash
+uv venv .venv
+```
+
+This creates an isolated Python environment inside `.venv`.
+
+### 3. Activate the environment
+
+Linux / macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Windows (PowerShell):
+
+```bash
+.venv\Scripts\Activate.ps1
+```
+
+### 4. Install dependencies
+
+If you have a requirements.txt:
+
+```bash
+uv pip install -r requirements.txt
+```
+
+If not, install manually:
+
+```bash
+uv pip install pyrogram tgcrypto requests beautifulsoup4
+```
+
+### Running the project
+
+After activating the virtual environment:
+
+```bash
+python main.py
+```
+
+### Project Structure
+telegram-api-session/
+├── main.py
+├── requirements.txt
+├── pyproject.toml (optional)
+├── .venv/
+└── session_output.txt
+
+### Disclaimer
+
+This project is for educational purposes only.
+Users are responsible for complying with Telegram’s Terms of Service.
