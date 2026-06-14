@@ -1,0 +1,13 @@
+[project]
+name = "telegram-api-session"
+version = "0.1.0"
+description = "a simple command app for creating and managing Telegram API sessions"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "pyrogram>=2.0.106",
+    "pysocks>=1.7.1",
+    "requests>=2.34.2",
+    "tgcrypto>=1.2.5",
+]
