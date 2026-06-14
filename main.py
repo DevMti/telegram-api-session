@@ -3,6 +3,10 @@ import os, asyncio, requests, time, random
 from bs4 import BeautifulSoup
 from pyrogram import Client
 
+proxies = {
+    "http": "socks4://127.0.0.1:10808",
+    "https": "socks4://127.0.0.1:10808"
+}
 
 def clear():
 	if os.name == "posix":
@@ -92,7 +96,7 @@ def request_tg_code_get_random_hash(input_phone_number):
     request_url = "https://my.telegram.org/auth/send_password"
     request_data = {"phone": input_phone_number}
     
-    response_c = requests.post(request_url, data=request_data)
+    response_c = requests.post(request_url, data=request_data, proxies=proxies)
     json_response = response_c.json()
 
     return json_response["random_hash"]
@@ -107,7 +111,7 @@ def login_step_get_stel_cookie(input_phone_number, tg_random_hash, provided_code
         "random_hash": tg_random_hash,
         "password": provided_code
     }
-    response_c = requests.post(request_url, data=request_data)
+    response_c = requests.post(request_url, data=request_data, proxies=proxies)
 
     cookie = None
     request_status = None
@@ -127,7 +131,7 @@ def scarp_tg_existing_app(cookie):
 
     request_url = "https://my.telegram.org/apps"
     custom_header = {"Cookie": cookie}
-    response_c = requests.get(request_url, headers=custom_header)
+    response_c = requests.get(request_url, headers=custom_header, proxies=proxies)
     response_text = response_c.text
 
     soup = BeautifulSoup(response_text, features="html.parser")
@@ -187,7 +191,7 @@ def create_new_tg_app(cookie, tg_app_hash, app_title, app_shortname, app_url, ap
         "app_desc": app_desc
     }
 
-    response_c = requests.post(request_url, data=request_data, headers=custom_header)
+    response_c = requests.post(request_url, data=request_data, headers=custom_header, proxies=proxies)
     print(str(response_c.text))
 
     return response_c
